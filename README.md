@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![Made with Ruby](https://img.shields.io/badge/Ruby->=2.6-blue?logo=ruby&logoColor=white)](https://ruby-lang.org)
-[![Made with Jekyll](https://img.shields.io/badge/Jekyll-4.2-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
+[![Made with Jekyll](https://img.shields.io/badge/Jekyll-4.2.1-blue?logo=jekyll&logoColor=white)](https://jekyllrb.com)
 
 
 ## Preview
@@ -64,7 +64,7 @@ $ make serve
 
 Open in the browser:
 
-- http://localhost:4000/jekyll-bootstrap-quickstart/
+- http://localhost:4000
 
 Build:
 

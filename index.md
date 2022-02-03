@@ -4,7 +4,7 @@ layout: default
 ---
 
 [![GitHub
-tag](https://img.shields.io/github/tag/MichaelCurrin/jekyll-bootstrap-quickstart?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/jekyll-bootstrap-quickstart/releases/)
+tag](https://img.shields.io/github/tag/mslinn/jekyll-bootstrap-quickstart?include_prereleases=&sort=semver)](https://github.com/mslinn/jekyll-bootstrap-quickstart/releases/)
 
 Welcome to **Jekyll Bootstrap Quickstart** project.
 
@@ -19,8 +19,8 @@ This site is built on:
 
 _Source code:_
 
-[![MichaelCurrin -
-jekyll-bootstrap-quickstart](https://img.shields.io/static/v1?label=MichaelCurrin&message=jekyll-bootstrap-quickstart&color=blue&logo=github)](https://github.com/MichaelCurrin/jekyll-bootstrap-quickstart)
+[![mslinn -
+jekyll-bootstrap-quickstart](https://img.shields.io/static/v1?label=mslinn&message=jekyll-bootstrap-quickstart&color=blue&logo=github)](https://github.com/mslinn/jekyll-bootstrap-quickstart)
 
 
 ## Component examples
@@ -32,12 +32,10 @@ jekyll-bootstrap-quickstart](https://img.shields.io/static/v1?label=MichaelCurri
 ### Alert
 
 <div class="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
+    This is a primary alert.
 </div>
 
 ### Dropdown
-
-Note that a dropdown will not work properly because it needs JavaScript loaded from Bootstrap.
 
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"

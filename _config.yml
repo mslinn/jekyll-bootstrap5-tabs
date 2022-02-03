@@ -6,12 +6,13 @@ description: Starter template for using Jekyll 4 and the Bootstrap gem
 ### Build settings
 
 url: https://michaelcurrin.github.io
-baseurl: /jekyll-bootstrap-quickstart
+#baseurl: /jekyll-bootstrap-quickstart
 
+# Update the Ruby version if you are not running
 sass:
   load_paths:
     - _sass/
-    - vendor/bundle/ruby/3.0.0/gems/
+    - vendor/bundle/ruby/2.7.0/gems/
 
 defaults:
   - scope:
