@@ -16,7 +16,7 @@ upgrade:
 
 .ONESHELL:
 s serve:
-  # Botched attempt
+  # Botched attempt at inserting the proper Ruby version
 	@#@export RUBY_VERSION=` gem env | grep 'RUBY VERSION' | cut -d' ' -f 6 | sed "s/\([0-9]\)\s*$/0/" `
 	@#@sed '^vendor/bundle/ruby^s^2.7.0^$$RUBY_VERSION^' _config.yml
 	mkdir -p assets/js

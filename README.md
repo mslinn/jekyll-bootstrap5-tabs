@@ -76,7 +76,7 @@ $ make build
 ## How it works
 
 - Bootstrap gem is installed using [Gemfile][/Gemfile].
-- The [\_config.yml](/_config.yml) is set up to load SASS styling from gems. This extra work is because the gem was not made to be compatible with Jekyll.
+- The [\_config.yml](/_config.yml) is set up to load SASS styling from gems. Be sure to match the Ruby version with the `vendor` path.
 - The [styles.scss](/assets/css/styles.scss) file is set up to load from the Bootstrap gem.
 
 
