@@ -1,9 +1,13 @@
 ### Site metadata
 
 title: Jekyll Bootstrap Quickstart
-description: Starter template for using Jekyll 4 and the Bootstrap gem
+description: Starter template for using Jekyll 4 and Bootstrap 5
 
-### Build settings
+incremental: true
+force_polling: true
+livereload: true
+markdown: kramdown
+strict_front_matter: true
 
 url: https://michaelcurrin.github.io
 #baseurl: /jekyll-bootstrap-quickstart

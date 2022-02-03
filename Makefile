@@ -14,15 +14,11 @@ install:
 upgrade:
 	bundle update
 
-.ONESHELL:
 s serve:
-  # Botched attempt at inserting the proper Ruby version
-	@#@export RUBY_VERSION=` gem env | grep 'RUBY VERSION' | cut -d' ' -f 6 | sed "s/\([0-9]\)\s*$/0/" `
-	@#@sed '^vendor/bundle/ruby^s^2.7.0^$$RUBY_VERSION^' _config.yml
-	mkdir -p assets/js
-	@cp vendor/bundle/ruby/2.7.0/gems/bootstrap-5.1.3/assets/javascripts/bootstrap.min.js assets/js/bootstrap.min.js
-	@cp vendor/bundle/ruby/2.7.0/gems/popper_js-2.9.3/assets/javascripts/popper.js assets/js/popper.js
-	bundle exec jekyll serve --trace --livereload --no-watch
+	bundle exec jekyll serve \
+		--host 0.0.0.0 --port 4000 \
+		--future --incremental --livereload \
+		--drafts --unpublished
 
 build:
 	JEKYLL_ENV=production bundle exec jekyll build --trace

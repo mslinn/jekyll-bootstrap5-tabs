@@ -19,10 +19,8 @@
 
 ## About
 
-This project includes the Bootstrap gem. So Bootstrap styling can be loaded as your CSS, without having to use NPM commands.
-
-- [bootstrap](https://rubygems.org/gems/bootstrap) on RubyGems.
-- [twbs/bootstrap-rubygem](https://github.com/twbs/bootstrap-rubygem) repo.
+This project no longer includes the Bootstrap gem.
+The CSS and JavaScript are fetched from a CDN by the `default` layout.
 
 
 ## How to use this template
@@ -75,8 +73,6 @@ $ make build
 
 ## How it works
 
-- Bootstrap gem is installed using [Gemfile][/Gemfile].
-- The [\_config.yml](/_config.yml) is set up to load SASS styling from gems. Be sure to match the Ruby version with the `vendor` path.
 - The [styles.scss](/assets/css/styles.scss) file is set up to load from the Bootstrap gem.
 
 
