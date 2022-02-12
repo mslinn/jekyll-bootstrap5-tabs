@@ -1,5 +1,5 @@
-Jekyll Simple Tabs
-[![Gem Version](https://badge.fury.io/rb/jekyll-simple-tab.svg)](https://badge.fury.io/rb/jekyll-simple-tab)
+Jekyll Simple Tabs 5
+[![Gem Version](https://badge.fury.io/rb/jekyll-simple-tab.svg)](https://badge.fury.io/rb/jekyll-simple-tab5)
 ===========
 
 ## Work in progress, does not work yet!
@@ -10,14 +10,14 @@ This Jekyll plugin provides navigation tabs, compatible with Bootstrap 5.
 
 Add this to the project `Gemfile`:
 ```ruby
-gem "jekyll-simple-tab"
+gem "jekyll-simple-tab5"
 ```
 
 Add this to the project `_config.yml`:
 
 ```yaml
 plugins:
-  - jekyll-simple-tab
+  - jekyll-simple-tab5
 ```
 
 Bootstrap 5 is required. One way to do that is to add the following HTML into the head tag:
