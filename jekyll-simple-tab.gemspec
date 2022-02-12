@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "jekyll-simple-tab/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekyll-simple-tab"
-  spec.version       = Jekyll::Simple::Tab::VERSION
-  spec.authors       = ["Artur Gabitov"]
-  spec.email         = ["applifort@gmail.com"]
+  spec.name          = "jekyll-simple-tab5"
+  spec.version       = Jekyll::Simple::Tab5::VERSION
+  spec.authors       = ["Artur Gabitov", "Mike Slinn"]
+  spec.email         = ["applifort@gmail.com", "mslinn@mslinn.com"]
 
-  spec.summary       = "Jekyll tabs plugin"
-  spec.description   = "Add tabs for your jekyll site. Ready for bootstrap 4"
-  spec.homepage      = "https://github.com/Applifort/jekyll-simple-tab"
+  spec.summary       = "Jekyll plugin for Boostrap 5 tabs"
+  spec.description   = "Add Bootstrap 5 tabs to Jekyll content."
+  spec.homepage      = "https://github.com/mslinn/jekyll-simple-tab5"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r!^(test|spec|features|docs)/!)  }
