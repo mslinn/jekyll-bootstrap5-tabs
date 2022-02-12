@@ -5,6 +5,7 @@ DEFAULT_TEMPLATE = 'template.slim'
 module Jekyll
   module Simple
     module Tab
+      # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
       class TabsBlock < Liquid::Block
         def initialize(tag, args, _)
           super
@@ -23,12 +24,13 @@ module Jekyll
           @environment = context.environments.first
           super
 
-          templateFilePath = template_path(DEFAULT_TEMPLATE)
-          template = Slim::Template.new(templateFilePath)
+          template_file_path = template_path(DEFAULT_TEMPLATE)
+          template = Slim::Template.new(template_file_path)
           template.render(self)
         end
       end
 
+      # Handles the inner {% tab %}{% endtab %} Liquid block for Bootstrap 5
       class TabBlock < Liquid::Block
         def initialize(tag, args, _)
           super

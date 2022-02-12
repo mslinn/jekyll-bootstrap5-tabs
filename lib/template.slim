@@ -1,15 +1,15 @@
-ul.nav.nav-tabs.mb-3 data-tab="#{@tab_name}" role="tablist"
+ul.nav.nav-tabs.mb-3
   - @environment["tabs-#{@tab_name}"].each_with_index do |(key, _), index|
     li.nav-item
       - if index == 0
-        a.nav-link.active id="#{key}-tab" data-toggle="tab" href="##{key}" role="tab" aria-controls="#{key}" aria-selected="true"= key
+        a.nav-link.active id="#{key}-tab" data-bs-toggle="tab" href="##{key}" aria-current="page" aria-selected="true"= key
       - else
-        a.nav-link id="#{key}-tab" data-toggle="tab" href="##{key}" role="tab" aria-controls="#{key}" aria-selected="false"= key
-.tab-content id="#{@tab_name}Content"
+        a.nav-link id="#{key}-tab" data-bs-toggle="tab" href="##{key}" aria-current="page" aria-selected="false"= key
+.tab-content id="#{@tab_name}-content"
   - @environment["tabs-#{@tab_name}"].each_with_index do |(key, value), index|
     - if index == 0
-      .tab-pane.fade.show.active id="#{key}" role="tabpanel" aria-labelledby="#{key}-tab"
+      .tab-pane.active id="#{key}" aria-labelledby="#{key}-tab"
         == value
     - else
-      .tab-pane.fade id="#{key}" role="tabpanel" aria-labelledby="#{key}-tab"
+      .tab-pane id="#{key}" aria-labelledby="#{key}-tab"
         == value
