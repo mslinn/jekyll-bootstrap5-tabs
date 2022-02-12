@@ -19,9 +19,10 @@
 
 ## About
 
-This project no longer includes the Bootstrap gem.
+This project no longer includes the `bootstrap` gem.
 The CSS and JavaScript are fetched from a CDN by the `default` layout.
 
+The [`jekyll-simple-tab`](https://github.com/Applifort/jekyll-simple-tab) has been added, and it supports the tab navigation.
 
 ## How to use this template
 

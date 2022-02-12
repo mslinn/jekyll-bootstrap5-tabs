@@ -13,6 +13,7 @@ url: https://michaelcurrin.github.io
 #baseurl: /jekyll-bootstrap-quickstart
 
 # Update the Ruby version if you are not running Ruby 2.7.0
+# ruby --version
 sass:
   load_paths:
     - _sass/
@@ -29,3 +30,6 @@ exclude:
   - README.md
   - Makefile
   - sample.png
+
+plugins:
+  - jekyll-simple-tab5
