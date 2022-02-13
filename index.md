@@ -53,10 +53,7 @@ The plugin should generate code similar to this:
 
 ## Component Examples
 
-This plugin was modified from the [`jekyll-simple-tabs` gem](https://github.com/Applifort/jekyll-simple-tab),
-which only supports one set of tabs per page.
-It will have to be extensively reworked in order to support Bootstrap 5.
-Hopefully the resulting plugin will be able to support more than one set of tabs per page.
+The [`jekyll-simple-tab5` gem](https://github.com/mslinn/jekyll-simple-tab5) created the tabs below:
 
 {% tabs test %}
   {% tab test#buttons %}
