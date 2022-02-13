@@ -22,7 +22,9 @@
 This project no longer includes the `bootstrap` gem.
 The CSS and JavaScript are fetched from a CDN by the `default` layout.
 
-The [`jekyll-simple-tab`](https://github.com/Applifort/jekyll-simple-tab) has been added, and it supports the tab navigation.
+The [`jekyll-simple-tab5`](https://github.com/mslinn/jekyll-simple-tab5) has been added, and it supports the tab navigation.
+
+ gem install --user-install /var/work/jekyll/jekyll-simple-tab5/pkg/jekyll_simple_tab5_1.0.0.gem
 
 ## How to use this template
 
