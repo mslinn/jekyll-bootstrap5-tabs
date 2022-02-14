@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-simple-tab5 (1.0.0)
+    jekyll_bootstrap5_tabs (1.0.0)
       jekyll (>= 3.0)
       slim (>= 3.0)
 
@@ -73,7 +73,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  jekyll-simple-tab5!
+  jekyll_bootstrap5_tabs!
 
 BUNDLED WITH
    2.3.7
