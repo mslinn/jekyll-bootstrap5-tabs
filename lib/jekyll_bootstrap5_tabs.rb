@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'slim'
+require_relative "jekyll_bootstrap5_tabs/version"
 
 DEFAULT_TEMPLATE = 'template.slim'
-
-require_relative "jekyll_bootstrap5_tabs/version"
 
 module JekyllBootstrap5Tabs
   # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
@@ -40,6 +41,8 @@ module JekyllBootstrap5Tabs
     end
 
     def render(context)
+      content = super
+
       environment = context.environments.first
       environment["tabs-#{@tabs_group}"] ||= {}
       environment["tabs-#{@tabs_group}"][@tab] = content
