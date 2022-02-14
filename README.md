@@ -45,6 +45,8 @@ See this [working minimal Bootstrap 5 tab example](https://codepen.io/mslinn/pen
 
 For example, given the following content in a Jekyll page:
 ```
+---
+---
 {% tabs test %}
   {% tab test#home %}
     Home at last!
@@ -52,7 +54,7 @@ For example, given the following content in a Jekyll page:
   {% tab test#profile %}
     Profile meeee...
   {% endtab %}
-  {% tab test#profile %}
+  {% tab test#messages %}
     Messages - I have none
   {% endtab %}
 {% endtabs %}
