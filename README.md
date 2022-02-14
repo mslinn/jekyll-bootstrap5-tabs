@@ -1,38 +1,49 @@
-Jekyll Simple Tabs 5
-[![Gem Version](https://badge.fury.io/rb/jekyll-simple-tab.svg)](https://badge.fury.io/rb/jekyll-simple-tab5)
+Jekyll Bootstrap 5 Tabs
+[![Gem Version](https://badge.fury.io/rb/jekyll_bootstrap5_tabs.svg)](https://badge.fury.io/rb/jekyll_bootstrap5_tabs)
 ===========
 
-## Work in progress, does not work yet!
+The original version, written by Artur Gabitov, expected Markdown and Bootstrap 4.
+This version requires Bootstrap 5 and HTML, not Markdown.
 
-This Jekyll plugin provides navigation tabs, compatible with Bootstrap 5.
 
 ## Installation
 
-Add this to the project `Gemfile`:
+Add this to your project's `Gemfile`:
 ```ruby
-gem "jekyll-simple-tab5"
+gem "jekyll_bootstrap5_tabs"
 ```
 
-Add this to the project `_config.yml`:
+Add this to your project's `_config.yml`:
 
 ```yaml
 plugins:
-  - jekyll-simple-tab5
+  - jekyll_bootstrap5_tabs
 ```
 
-Bootstrap 5 is required. One way to do that is to add the following HTML into the head tag:
-```html
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+And then execute:
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-```
+    $ bundle install
+
+Or install it yourself as:
+
+    $ gem install jekyll-simple-tab5
+
 
 ## Usage
 
+Bootstrap 5 is required. One way to include Bootstrap 5 in your project is to add the following HTML into the &lt;head> tag:
+```html
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+```
+...and add this to the bottom of the HTML file:
+```html
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+```
+
 See this [working minimal Bootstrap 5 tab example](https://codepen.io/mslinn/pen/OJOjVPR)
 
-Given this content in a Jekyll page:
+For example, given the following content in a Jekyll page:
 ```
 {% tabs test %}
   {% tab test#home %}
@@ -46,7 +57,7 @@ Given this content in a Jekyll page:
   {% endtab %}
 {% endtabs %}
 ```
-The plugin should generate code similar to this:
+The jekyll_bootstrap5_tabs plugin will generate code similar to this:
 ```html
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -73,8 +84,8 @@ The plugin should generate code similar to this:
 ## Building
 
 ```shell
-$ rake build jekyll-simple-tab5.gemspec
-jekyll-simple-tab5 1.0.0 built to pkg/jekyll-simple-tab5-1.0.0.gem.
+$ rake build jekyll_bootstrap5_tabs.gemspec
+jekyll_bootstrap5_tabs 1.0.0 built to pkg/jekyll_bootstrap5_tabs-1.0.0.gem.
 ```
 
 The most recently built gem is provided in `pkg/`.
@@ -83,20 +94,37 @@ The most recently built gem is provided in `pkg/`.
 ## Installing
 
 ```shell
-$ gem install pkg/jekyll-simple-tab5-1.0.0.gem
+$ gem install pkg/jekyll_bootstrap5_tabs-1.0.0.gem
 Fetching slim-4.1.0.gem
 Fetching temple-0.8.2.gem
 Successfully installed temple-0.8.2
 Successfully installed slim-4.1.0
-Successfully installed jekyll-simple-tab5-1.0.0
+Successfully installed jekyll_bootstrap5_tabs-1.0.0
 Parsing documentation for temple-0.8.2
 Installing ri documentation for temple-0.8.2
 Parsing documentation for slim-4.1.0
 Installing ri documentation for slim-4.1.0
-Parsing documentation for jekyll-simple-tab5-1.0.0
-Installing ri documentation for jekyll-simple-tab5-1.0.0
-Done installing documentation for temple, slim, jekyll-simple-tab5 after 0 seconds
+Parsing documentation for jekyll_bootstrap5_tabs-1.0.0
+Installing ri documentation for jekyll_bootstrap5_tabs-1.0.0
+Done installing documentation for temple, slim, jekyll_bootstrap5_tabs after 0 seconds
 3 gems installed
 ```
 
 Now go use the gem in a Jekyll project!
+
+
+## Development
+
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/mslinn/jekyll-simple-tab5.
+
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
