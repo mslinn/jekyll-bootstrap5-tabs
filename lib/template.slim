@@ -1,4 +1,4 @@
-ul.nav.nav-tabs.mb-3
+ul.nav.nav-tabs
   - @environment["tabs-#{@tab_name}"].each_with_index do |(key, _), index|
     li.nav-item
       - if index == 0
