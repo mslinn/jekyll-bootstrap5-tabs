@@ -3,7 +3,7 @@ Jekyll Bootstrap 5 Tabs
 ===========
 
 The original version, written by Artur Gabitov, expected Markdown and Bootstrap 4.
-This version requires Bootstrap 5 and HTML, not Markdown.
+[This version](https://rubygems.org/gems/jekyll_bootstrap5_tabs) requires Bootstrap 5 and HTML, not Markdown.
 
 
 ## Installation
