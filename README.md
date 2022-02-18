@@ -48,7 +48,7 @@ The `jekyll_bootstrap5_tabs` plugin provides two new Liquid tags: `tabs` and `ta
 Jekyll interprets the Liquid language when embedded into HTML pages.
 Following is the short example from the video above.
 Place it wherever you want within the `<body/>` tag.
-
+```
 {% tabs demo %}
   {% tab demo#First %}
     Content of the first tab.
@@ -58,6 +58,7 @@ Place it wherever you want within the `<body/>` tag.
   {% endtab %}
 {% endtabs %}
 The outer tabs tag has a name: demo. This name defines a namespace scope for the inner tab tags.
+```
 
 The inner tab tags reference the outer tags tag (yes, this is redundant), and introduces the name of the tab that it defines after the octothorpe (aka hash mark, number sign, and pound sign: #). A Bootstrap 5 tab is created for every tab tag, and the id for each tag is defined by the characters following the octothorpe. This id is also displayed as the label for the tab, so if you want it capitalized a certain way, specify the tag capitalization in the tab tag.
 
@@ -68,13 +69,13 @@ For example, given the following content in a Jekyll page:
 ---
 ---
 {% tabs test %}
-  {% tab test#home %}
+  {% tab test#Home %}
     Home at last!
   {% endtab %}
-  {% tab test#profile %}
+  {% tab test#Profile %}
     Profile meeee...
   {% endtab %}
-  {% tab test#messages %}
+  {% tab test#Messages %}
     Messages - I have none
   {% endtab %}
 {% endtabs %}
