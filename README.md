@@ -43,6 +43,26 @@ Bootstrap 5 is required. One way to include Bootstrap 5 in your project is to ad
 
 See this [working minimal Bootstrap 5 tab example](https://codepen.io/mslinn/pen/OJOjVPR)
 
+## Two New Liquid Tags
+The `jekyll_bootstrap5_tabs` plugin provides two new Liquid tags: `tabs` and `tab`.
+Jekyll interprets the Liquid language when embedded into HTML pages.
+Following is the short example from the video above.
+Place it wherever you want within the `<body/>` tag.
+
+{% tabs demo %}
+  {% tab demo#First %}
+    Content of the first tab.
+  {% endtab %}
+  {% tab demo#Second %}
+    Content of the second tab.
+  {% endtab %}
+{% endtabs %}
+The outer tabs tag has a name: demo. This name defines a namespace scope for the inner tab tags.
+
+The inner tab tags reference the outer tags tag (yes, this is redundant), and introduces the name of the tab that it defines after the octothorpe (aka hash mark, number sign, and pound sign: #). A Bootstrap 5 tab is created for every tab tag, and the id for each tag is defined by the characters following the octothorpe. This id is also displayed as the label for the tab, so if you want it capitalized a certain way, specify the tag capitalization in the tab tag.
+
+The current implementation does not allow spaces within tab labels. Instead, tab labels may only consist of one word each.
+
 For example, given the following content in a Jekyll page:
 ```
 ---
