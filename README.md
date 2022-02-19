@@ -10,7 +10,7 @@ The original version, written by Artur Gabitov, expected Markdown and Bootstrap 
 
 Add this to your project's `Gemfile`:
 ```ruby
-gem "jekyll_bootstrap5_tabs"
+gem 'jekyll_bootstrap5_tabs'
 ```
 
 Add this to your project's `_config.yml`:
@@ -31,56 +31,51 @@ Or install it yourself as:
 
 ## Usage
 
-Bootstrap 5 is required. One way to include Bootstrap 5 in your project is to add the following HTML into the &lt;head> tag:
+Bootstrap 5 is required.
+One way to include Bootstrap 5 into a page within your project is to add the following HTML into the `<head/>` tag:
 ```html
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 ```
-...and add this to the bottom of the HTML file:
+...and add this to the bottom of the HTML file, within the `<body/>` tag:
 ```html
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 ```
 
 See this [working minimal Bootstrap 5 tab example](https://codepen.io/mslinn/pen/OJOjVPR)
 
+
 ## Two New Liquid Tags
 The `jekyll_bootstrap5_tabs` plugin provides two new Liquid tags: `tabs` and `tab`.
 Jekyll interprets the Liquid language when embedded into HTML pages.
-Following is the short example from the video above.
-Place it wherever you want within the `<body/>` tag.
+
+For example, given the following content in a Jekyll page that has
+[minimal front matter](https://jekyllrb.com/docs/front-matter/):
 ```
+---
+---
 {% tabs demo %}
-  {% tab demo#First %}
-    Content of the first tab.
-  {% endtab %}
-  {% tab demo#Second %}
-    Content of the second tab.
-  {% endtab %}
-{% endtabs %}
-The outer tabs tag has a name: demo. This name defines a namespace scope for the inner tab tags.
-```
-
-The inner tab tags reference the outer tags tag (yes, this is redundant), and introduces the name of the tab that it defines after the octothorpe (aka hash mark, number sign, and pound sign: #). A Bootstrap 5 tab is created for every tab tag, and the id for each tag is defined by the characters following the octothorpe. This id is also displayed as the label for the tab, so if you want it capitalized a certain way, specify the tag capitalization in the tab tag.
-
-The current implementation does not allow spaces within tab labels. Instead, tab labels may only consist of one word each.
-
-For example, given the following content in a Jekyll page:
-```
----
----
-{% tabs test %}
-  {% tab test#Home %}
+  {% tab demo#Home %}
     Home at last!
   {% endtab %}
-  {% tab test#Profile %}
+  {% tab demo#Profile %}
     Profile meeee...
   {% endtab %}
-  {% tab test#Messages %}
+  {% tab demo#Messages %}
     Messages - I have none
   {% endtab %}
 {% endtabs %}
 ```
-The jekyll_bootstrap5_tabs plugin will generate code similar to this:
+The outer tabs tag has a name: `demo`.
+This name defines a namespace scope for the inner `tab` tags.
+The inner `tab` tags reference the outer `tabs` tag (yes, this is redundant),
+and introduces the name of the tab that it defines after the octothorpe (aka hash mark, number sign, and pound sign: #). A Bootstrap 5 tab is created for every `tab` tag, and the `id` for each `tag` is defined by the characters following the octothorpe.
+This `id` is also displayed as the label for the `tab`, so if you want it capitalized a certain way, specify the tag capitalization in the `tab` tag.
+
+The current implementation does not allow spaces within tab labels.
+Instead, tab labels may only consist of one word each.
+
+The `jekyll_bootstrap5_tabs` plugin will generate code similar to this:
 ```html
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -138,7 +133,8 @@ Now go use the gem in a Jekyll project!
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies.
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`,
