@@ -111,7 +111,7 @@ The `jekyll_bootstrap5_tabs` plugin will generate code similar to the following.
 ```
 
 ### New for Version 1.1.0
-By default, the output is not pretty-printed.
+By default, the plugin output is not pretty-printed.
 However, you can enable pretty-printing for a single set of tabs by including the `pretty` keyword in the `tabs` tag, like this:
 ```
 {% tabs demo pretty %}
@@ -119,9 +119,9 @@ However, you can enable pretty-printing for a single set of tabs by including th
 {% endtabs%}
 ```
 
-You can enable pretty-printing for the entire site by adding the following to `_config.yaml`:
+You can enable pretty-printing for the entire Jekyll site by adding the following to `_config.yaml`:
 ```yaml
-- jekyll_bootstrap5_tabs:
+jekyll_bootstrap5_tabs:
   - pretty: true
 ```
 
