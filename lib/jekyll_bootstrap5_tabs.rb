@@ -16,20 +16,25 @@ module JekyllBootstrap5Tabs
       argv = args.strip.split ' '
       @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
 
-      # Set the pretty-print option for the Slim engine
-      # Global configuration provides the default value of @pretty_print
-      @pretty_print = false
-      config = site.config['jekyll_bootstrap5_tabs']
-      if not config.nil?
-        config_pp = config['pretty_print']
-        @pretty_print = not config_pp.nil? && config_pp == true
-        puts "Bootstrap tab pretty-printing enabled by default for entire site."
-      end
       # Usage can override default and enable pretty-printing, not possible to disable per-tab
+      @pretty_print = false
       if argv.length>1 && argv[1].downcase == 'pretty'
         @pretty_print = true
-        puts "Bootstrap tab pretty-printing enabled for {@tab_name}"
+        puts "Bootstrap tab pretty-printing is enabled for {@tab_name}"
       end
+    end
+
+    # @param config [YAML] Configuration data that might contain a entry for `jekyll_bootstrap5_tabs`
+    # @param progname [String] The name of the `option:` subentry to look for underneath the `jekyll_bootstrap5_tabs` entry
+    # @return [TrueClass, FalseClass]
+    def check_config_boolean(config, option)
+      tabs_options = config['jekyll_bootstrap5_tabs']
+      return false if tabs_options.nil?
+
+      hash = tabs_options.detect {|option| option["pretty"] }
+      # puts("*********** tabs_options = #{tabs_options}")
+      # puts("*********** hash = #{hash}")
+      return (not hash.nil?) && hash['pretty']
     end
 
     def template_path(template_name)
@@ -38,6 +43,14 @@ module JekyllBootstrap5Tabs
     end
 
     def render(context)
+      site = context.registers[:site]
+      # Set the pretty-print option for the Slim engine
+      # Global configuration provides the default value of @pretty_print
+      if check_config_boolean(site.config, 'pretty')
+        @pretty_print = true
+        puts "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site."
+      end
+
       @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
       #puts("TabsBlock.render: @environment = '#{@environment}'")
       super
