@@ -2,6 +2,8 @@ Jekyll Bootstrap 5 Tabs
 [![Gem Version](https://badge.fury.io/rb/jekyll_bootstrap5_tabs.svg)](https://badge.fury.io/rb/jekyll_bootstrap5_tabs)
 ===========
 
+<img src="docs/tabDemo.gif" width="500" height="auto" />
+
 The original version, written by Artur Gabitov, expected Markdown and Bootstrap 4.
 [This version](https://rubygems.org/gems/jekyll_bootstrap5_tabs) requires Bootstrap 5 and HTML, not Markdown.
 
@@ -26,7 +28,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install jekyll-simple-tab5
+    $ gem install jekyll_bootstrap5_tabs
 
 
 ## Usage
@@ -67,7 +69,7 @@ For example, given the following content in a Jekyll page that has
 {% endtabs %}
 ```
 The outer tabs tag has a name: `demo`.
-This name defines a namespace scope for the inner `tab` tags.
+Conceptually, this name defines a namespace scope for the inner `tab` tags, but actually this version does not use the name for any purpose.
 The inner `tab` tags reference the outer `tabs` tag (yes, this is redundant),
 and introduces the name of the tab that it defines after the octothorpe (aka hash mark, number sign, and pound sign: #). A Bootstrap 5 tab is created for every `tab` tag, and the `id` for each `tag` is defined by the characters following the octothorpe.
 This `id` is also displayed as the label for the `tab`, so if you want it capitalized a certain way, specify the tag capitalization in the `tab` tag.
@@ -75,7 +77,7 @@ This `id` is also displayed as the label for the `tab`, so if you want it capita
 The current implementation does not allow spaces within tab labels.
 Instead, tab labels may only consist of one word each.
 
-The `jekyll_bootstrap5_tabs` plugin will generate code similar to this:
+The `jekyll_bootstrap5_tabs` plugin will generate code similar to the following.
 ```html
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -90,13 +92,38 @@ The `jekyll_bootstrap5_tabs` plugin will generate code similar to this:
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="home" aria-labelledby="home-tab">Home at last!</div>
-  <div class="tab-pane" id="profile" aria-labelledby="profile-tab">Profile meeee...</div>
-  <div class="tab-pane" id="messages" aria-labelledby="messages-tab">Messages - I have none</div>
+  <div class="tab-pane active" id="home" aria-labelledby="home-tab">
+    <editor_fold Home>
+    Home at last!
+    </editor_fold>
+  </div>
+  <div class="tab-pane" id="profile" aria-labelledby="profile-tab">
+    <editor_fold Profile>
+      Profile meeee...
+    </editor_fold>
+  </div>
+  <div class="tab-pane" id="messages" aria-labelledby="messages-tab">
+    <editor_fold Messages>
+      Messages - I have none
+    </editor_fold>
+  </div>
 </div>
 ```
 
-![Image](docs/tab-screen.gif)
+### New for Version 1.1.0
+By default, the output is not pretty-printed.
+However, you can enable pretty-printing for a single set of tabs by including the `pretty` keyword in the `tabs` tag, like this:
+```
+{% tabs demo pretty %}
+  ... tab tags go here
+{% endtabs%}
+```
+
+You can enable pretty-printing for the entire site by adding the following to `_config.yaml`:
+```yaml
+- jekyll_bootstrap5_tabs:
+  - pretty: true
+```
 
 
 ## Building
