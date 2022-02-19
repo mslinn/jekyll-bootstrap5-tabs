@@ -13,7 +13,23 @@ module JekyllBootstrap5Tabs
 
       raise SyntaxError.new("#{tag} requires name") if args.empty?
 
-      @tab_name = args.strip
+      argv = args.strip.split ' '
+      @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
+
+      # Set the pretty-print option for the Slim engine
+      # Global configuration provides the default value of @pretty_print
+      @pretty_print = false
+      config = site.config['jekyll_bootstrap5_tabs']
+      if not config.nil?
+        config_pp = config['pretty_print']
+        @pretty_print = not config_pp.nil? && config_pp == true
+        puts "Bootstrap tab pretty-printing enabled by default for entire site."
+      end
+      # Usage can override default and enable pretty-printing, not possible to disable per-tab
+      if argv.length>1 && argv[1].downcase == 'pretty'
+        @pretty_print = true
+        puts "Bootstrap tab pretty-printing enabled for {@tab_name}"
+      end
     end
 
     def template_path(template_name)
@@ -22,10 +38,12 @@ module JekyllBootstrap5Tabs
     end
 
     def render(context)
-      @environment = context.environments.first
+      @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
+      #puts("TabsBlock.render: @environment = '#{@environment}'")
       super
 
       template_file_path = template_path(DEFAULT_TEMPLATE)
+      Slim::Engine.set_options pretty: @pretty_print
       template = Slim::Template.new(template_file_path)
       template.render(self)
     end
@@ -37,13 +55,14 @@ module JekyllBootstrap5Tabs
       super
 
       @tabs_group, @tab = split_params(args.strip)
+      #puts("TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'")
       raise SyntaxError.new("Block #{tag} requires tabs name") if @tabs_group.empty? || @tab.empty?
     end
 
     def render(context)
       content = super
 
-      environment = context.environments.first
+      environment = context.environments.first # Has type Jekyll::Drops::UnifiedPayloadDrop
       environment["tabs-#{@tabs_group}"] ||= {}
       environment["tabs-#{@tabs_group}"][@tab] = content
     end
