@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'slim'
-require_relative "jekyll_bootstrap5_tabs/version"
+require_relative 'jekyll_bootstrap5_tabs/version'
 
 DEFAULT_TEMPLATE = 'template.slim'
 
@@ -14,14 +14,14 @@ module JekyllBootstrap5Tabs
       raise SyntaxError.new("#{tag} requires name") if args.empty?
 
       argv = args.strip.split ' '
-      @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
+      @tab_name = argv[0] # TODO: @tab_name is never used. Should act as a namespace.
 
       # Usage can override default and enable pretty-printing, not possible to disable per-tab
       @pretty_print = false
-      if argv.length>1 && argv[1].downcase == 'pretty'
-        @pretty_print = true
-        puts "Bootstrap tab pretty-printing is enabled for {@tab_name}"
-      end
+      return unless argv.length > 1 && argv[1].downcase == 'pretty'
+
+      @pretty_print = true
+      puts 'Bootstrap tab pretty-printing is enabled for {@tab_name}'
     end
 
     # @param config [YAML] Configuration data that might contain a entry for `jekyll_bootstrap5_tabs`
@@ -31,10 +31,10 @@ module JekyllBootstrap5Tabs
       tabs_options = config['jekyll_bootstrap5_tabs']
       return false if tabs_options.nil?
 
-      hash = tabs_options.detect {|option| option["pretty"] }
-      # puts("*********** tabs_options = #{tabs_options}")
-      # puts("*********** hash = #{hash}")
-      return (not hash.nil?) && hash['pretty']
+      hash = tabs_options.detect { |opt| opt['pretty'] }
+      # puts("jekyll_bootstrap5_tabs: tabs_options = #{tabs_options}")
+      # puts("jekyll_bootstrap5_tabs: hash = #{hash}")
+      !hash.nil? && hash['pretty']
     end
 
     def template_path(template_name)
@@ -48,11 +48,11 @@ module JekyllBootstrap5Tabs
       # Global configuration provides the default value of @pretty_print
       if check_config_boolean(site.config, 'pretty')
         @pretty_print = true
-        puts "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site."
+        puts 'Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site.'
       end
 
-      @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
-      #puts("TabsBlock.render: @environment = '#{@environment}'")
+      @environment = context.environments.first # Has type Jekyll::Drops::UnifiedPayloadDrop
+      # puts("TabsBlock.render: @environment = '#{@environment}'")
       super
 
       template_file_path = template_path(DEFAULT_TEMPLATE)
@@ -68,7 +68,7 @@ module JekyllBootstrap5Tabs
       super
 
       @tabs_group, @tab = split_params(args.strip)
-      #puts("TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'")
+      # puts("TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'")
       raise SyntaxError.new("Block #{tag} requires tabs name") if @tabs_group.empty? || @tab.empty?
     end
 
