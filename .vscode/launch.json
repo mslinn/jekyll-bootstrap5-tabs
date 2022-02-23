@@ -5,10 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug test/test3.rb",
+      "type": "Ruby",
+      "request": "launch",
+      "program": "test/test3.rb"
+    },
+    {
       "name": "Debug test/test.rb",
       "type": "Ruby",
       "request": "launch",
-      "program": "${workspaceRoot}/test/test.rb"
+      "program": "${workspaceFolderBasename}/test/test.rb"
     }
   ]
 }
