@@ -157,6 +157,12 @@ Done installing documentation for temple, slim, jekyll_bootstrap5_tabs after 0 s
 
 Now go use the gem in a Jekyll project!
 
+## Companion Project: Slim Explorer
+I (Mike Slinn) wanted to understand more about how Artur Gabitov got the Slim language part to work.
+He only provided the end result, without any hint of how he had accomplished this.
+I took on the discovery of implementing a minimal development scaffold for the Slim Language.
+Check out the [Slim Explorer](https://github.com/mslinn/slim_explorer)!
+
 
 ## Development
 
