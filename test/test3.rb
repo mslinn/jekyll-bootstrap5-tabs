@@ -10,17 +10,19 @@ def Warning.warn(w)
   end
 end
 
-def process_once(layout, content)
+def process_once(scope)
   puts "\n#{Time.new.localtime.strftime('%H:%M:%S')}"
+  template = Slim::Template.new('test/template.slim', { 'pretty': true })
   begin
-    puts(layout.render { content })
-    # puts(modified: modified, added: added, removed: removed)
+    puts(template.render(scope))
   rescue NoMethodError => e
     if e.message == "undefined method `[]' for nil:NilClass"
       puts 'The slim template references an undefined variable or has a syntax error'
     else
       puts e.message
     end
+  rescue e
+    puts e.message
   end
 end
 
@@ -32,21 +34,9 @@ end
 scope = Env.new
 scope.name = 'Testing, 1-2-3, testing'
 
-template_layout = <<~HTML
-  h1 Hello
-  .content
-    = yield
-HTML
-
-slim_expression = <<~SLIM
-  = name
-SLIM
-
-layout = Slim::Template.new { template_layout }
-# layout = Slim::Template.new('test/template.slim', { 'pretty': true })
-content = Slim::Template.new { slim_expression }.render(scope)
-
-process_once(layout, content)
-listener = Listen.to('./test/') { process_once content }
+process_once(scope)
+listener = Listen.to('./test/') do
+  process_once(scope)
+end
 listener.start
 sleep
