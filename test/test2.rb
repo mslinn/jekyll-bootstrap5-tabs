@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'slim'
 
 # Simple class to represent an environment
@@ -22,4 +24,3 @@ layout = Slim::Template.new { layout }
 content = Slim::Template.new { contents }.render(scope)
 
 puts layout.render{ content }
-

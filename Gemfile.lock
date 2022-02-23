@@ -75,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll_bootstrap5_tabs!
+  listen
   rake (~> 13.0)
 
 BUNDLED WITH
