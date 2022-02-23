@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# See https://www.ruby-toolbox.com/projects/tilt
+
 require 'listen'
 require 'slim'
 
@@ -10,23 +12,23 @@ def Warning.warn(w)
   end
 end
 
+# rubocop:disable Metrics/MethodLength
 def process_once(scope)
   puts "\n#{Time.new.localtime.strftime('%H:%M:%S')}"
   template = Slim::Template.new('test/template.slim', { 'pretty': true })
   begin
     puts(template.render(scope))
-  rescue NoMethodError => e
+  rescue StandardError => e
     if e.message == "undefined method `[]' for nil:NilClass"
       puts 'The slim template references an undefined variable or has a syntax error'
     else
       puts e.message
     end
-  rescue e
-    puts e.message
   end
 end
+# rubocop:enable Metrics/MethodLength
 
-# Simple class to represent an environment
+# Represent an environment, which holds name/value pairs
 class Env
   attr_accessor :name
 end
