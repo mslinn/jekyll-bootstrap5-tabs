@@ -126,36 +126,23 @@ jekyll_bootstrap5_tabs:
 ```
 
 
-## Building
+## Installation
 
-```shell
-$ rake build jekyll_bootstrap5_tabs.gemspec
-jekyll_bootstrap5_tabs 1.0.0 built to pkg/jekyll_bootstrap5_tabs-1.0.0.gem.
+Add this line to your application's Gemfile, within the `jekyll_plugins` group:
+
+```ruby
+group :jekyll_plugins do
+  gem 'jekyll_bootstrap5_tabs'
+end
 ```
 
-The most recently built gem is provided in `pkg/`.
+And then execute:
 
+    $ bundle install
 
-## Installing
+Or install it yourself as:
 
-```shell
-$ gem install pkg/jekyll_bootstrap5_tabs-1.0.0.gem
-Fetching slim-4.1.0.gem
-Fetching temple-0.8.2.gem
-Successfully installed temple-0.8.2
-Successfully installed slim-4.1.0
-Successfully installed jekyll_bootstrap5_tabs-1.0.0
-Parsing documentation for temple-0.8.2
-Installing ri documentation for temple-0.8.2
-Parsing documentation for slim-4.1.0
-Installing ri documentation for slim-4.1.0
-Parsing documentation for jekyll_bootstrap5_tabs-1.0.0
-Installing ri documentation for jekyll_bootstrap5_tabs-1.0.0
-Done installing documentation for temple, slim, jekyll_bootstrap5_tabs after 0 seconds
-3 gems installed
-```
-
-Now go use the gem in a Jekyll project!
+    $ gem install jekyll_bootstrap5_tabs
 
 
 ## Development
@@ -163,15 +150,27 @@ Now go use the gem in a Jekyll project!
 After checking out the repo, run `bin/setup` to install dependencies.
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`.
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`,
-which will create a git tag for the version, push git commits and the created tag,
-and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run:
+```
+$ bundle exec rake install
+```
+
+To publicly release a new version:
+
+ 1. Update the version number in `version.rb`
+ 2. Commit changes to git.
+ 3. Run:
+    ```shell
+    $ bundle exec rake release
+    ```
+    The above creates a git tag for the version,
+    pushes the created git tag to the git repo,
+    and pushes the new `.gem` file in `pkg/` to [RubyGems.org](https://rubygems.org).
 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mslinn/jekyll-bootstrap5-tabs.
+Bug reports and pull requests are welcome on GitHub at [`github.com/mslinn/jekyll_bootstrap5_tabs`](https://github.com/mslinn/jekyll_bootstrap5_tabs).
 
 
 ## License

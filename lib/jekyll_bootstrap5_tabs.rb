@@ -11,29 +11,29 @@ module JekyllBootstrap5Tabs
     def initialize(tag, args, _)
       super
 
-      raise SyntaxError.new("#{tag} requires name") if args.empty?
+      raise SyntaxError, "#{tag} requires name" if args.empty?
 
       argv = args.strip.split ' '
-      @tab_name = argv[0] # TODO: @tab_name is never used. Should act as a namespace.
+      @tab_name = argv[0]
 
       # Usage can override default and enable pretty-printing, not possible to disable per-tab
       @pretty_print = false
       return unless argv.length > 1 && argv[1].downcase == 'pretty'
 
       @pretty_print = true
-      puts 'Bootstrap tab pretty-printing is enabled for {@tab_name}'
+      Jekyll.logger.info "Bootstrap tab pretty-printing is enabled for the tabs with id '#{@tab_name}'"
     end
 
     # @param config [YAML] Configuration data that might contain a entry for `jekyll_bootstrap5_tabs`
     # @param progname [String] The name of the `option:` subentry to look for underneath the `jekyll_bootstrap5_tabs` entry
     # @return [TrueClass, FalseClass]
-    def check_config_boolean(config, option)
+    def check_config_boolean(config, _option)
       tabs_options = config['jekyll_bootstrap5_tabs']
       return false if tabs_options.nil?
 
       hash = tabs_options.detect { |opt| opt['pretty'] }
-      # puts("jekyll_bootstrap5_tabs: tabs_options = #{tabs_options}")
-      # puts("jekyll_bootstrap5_tabs: hash = #{hash}")
+      Jekyll.logger.debug "jekyll_bootstrap5_tabs: tabs_options = #{tabs_options}"
+      Jekyll.logger.debug "jekyll_bootstrap5_tabs: hash = #{hash}"
       !hash.nil? && hash['pretty']
     end
 
@@ -48,11 +48,11 @@ module JekyllBootstrap5Tabs
       # Global configuration provides the default value of @pretty_print
       if check_config_boolean(site.config, 'pretty')
         @pretty_print = true
-        puts 'Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site.'
+        Jekyll.logger.info 'Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site.'
       end
 
       @environment = context.environments.first # Has type Jekyll::Drops::UnifiedPayloadDrop
-      # puts("TabsBlock.render: @environment = '#{@environment}'")
+      Jekyll.logger.debug "TabsBlock.render: @environment = '#{@environment}'"
       super
 
       template_file_path = template_path(DEFAULT_TEMPLATE)
@@ -68,8 +68,8 @@ module JekyllBootstrap5Tabs
       super
 
       @tabs_group, @tab = split_params(args.strip)
-      # puts("TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'")
-      raise SyntaxError.new("Block #{tag} requires tabs name") if @tabs_group.empty? || @tab.empty?
+      Jekyll.logger.debug "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'"
+      raise SyntaxError, "Block #{tag} requires tabs name" if @tabs_group.empty? || @tab.empty?
     end
 
     def render(context)
