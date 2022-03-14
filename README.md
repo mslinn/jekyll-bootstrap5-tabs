@@ -173,8 +173,10 @@ Check out the [Slim Explorer](https://github.com/mslinn/slim_explorer)!
 After checking out the repo, run `bin/setup` to install dependencies.
 You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`.
-
+To install this gem onto your local machine, run:
+```shell
+$ bundle exec rake install
+```
 
 To release a new version, 
   1. Update the version number in `version.rb`.
