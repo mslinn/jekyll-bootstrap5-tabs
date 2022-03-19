@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll_bootstrap5_tabs (1.1.0)
+    jekyll_bootstrap5_tabs (1.1.2)
       jekyll (>= 3.5.0)
       jekyll_plugin_logger
       slim (~> 3.0)
