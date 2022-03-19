@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Assumes that the target Jekyll website contains a script called _bin/debug.
+# See https://www.mslinn.com/blog/2022/02/21/jekyll-debugging.html
+
+if [ -z "$1" ]; then
+  echo "Error: Please provide the directory name of the Jekyll website where the plugin is to be tested from."
+  exit 1
+fi
+
+if [ ! -f "$1/_bin/debug" ]; then
+  echo "Error: $1/_bin/debug does not exist."
+  exit 1
+fi
+
+NAME=jekyll_archive_create
+
+eval "$( grep VERSION lib/$NAME/version.rb | sed 's/ *//g' )"
+
+bundle exec rake build && \
+gem install "pkg/$NAME-$VERSION.gem" &&
+(cd "$1" || exit 1; _bin/debug)
