@@ -1,0 +1,16 @@
+require: rubocop-jekyll
+inherit_gem:
+  rubocop-jekyll: .rubocop.yml
+
+AllCops:
+  Exclude:
+      - vendor/**/*
+      - Gemfile*
+  NewCops: enable
+  TargetRubyVersion: 2.6
+
+Layout/LineLength:
+  Max: 150
+
+Style/StringLiterals:
+  Enabled: false

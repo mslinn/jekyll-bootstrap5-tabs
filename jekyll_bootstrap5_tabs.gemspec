@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Artur Gabitov', 'Mike Slinn']
   spec.email         = ['applifort@gmail.com', 'mslinn@mslinn.com']
 
-  spec.summary       = 'Jekyll plugin for Bootstrap 5 tabs'
-  spec.description   = 'Enables Bootstrap 5 tabs in Jekyll 4 websites.'
+  spec.summary       = 'Jekyll plugin that enables Bootstrap 5 tabs in Jekyll 4 websites.'
+  spec.description   = spec.summary
   spec.homepage      = 'https://mslinn.com/blog/2022/02/13/jekyll-gem.html'
   spec.license       = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
