@@ -2,10 +2,13 @@
 
 require "jekyll_plugin_logger"
 require "slim"
+require_relative "jekyll_bootstrap5_tabs/version"
 
 DEFAULT_TEMPLATE = 'template.slim'
 
 module Jekyll
+  PLUGIN_NAME = "jekyll_bootstrap5_tabs"
+
   # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
   class TabsBlock < Liquid::Block
     def initialize(tag, args, _)
@@ -20,7 +23,7 @@ module Jekyll
       @pretty_print = false
       if argv.length > 1 && argv[1].casecmp('pretty').zero?
         @pretty_print = true
-        info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
+        Jekyll.info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
       end
     end
 
@@ -48,7 +51,7 @@ module Jekyll
       # Global configuration provides the default value of @pretty_print
       if check_config_boolean(site.config, 'pretty')
         @pretty_print = true
-        puts "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site."
+        info { "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site." }
       end
 
       @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
@@ -87,7 +90,7 @@ module Jekyll
     end
   end
 
-  info { "Loaded jekyll_bootstrap5_tabs plugin." }
+  info { "Loaded #{PLUGIN_NAME} v#{JekyllBootstrap5Tabs::VERSION} plugin." }
 end
 
 Liquid::Template.register_tag('tabs', Jekyll::TabsBlock)
