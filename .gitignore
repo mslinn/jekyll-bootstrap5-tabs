@@ -7,3 +7,4 @@ vendor/
 #/pkg/
 /spec/reports/
 /tmp/
+*.gemspec
