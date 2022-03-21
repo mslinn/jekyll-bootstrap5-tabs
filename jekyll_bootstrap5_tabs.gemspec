@@ -18,18 +18,19 @@ module GemSpecHelper
   end
 end
 
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   files = GemSpecHelper.spec_files
   github = "https://github.com/mslinn/jekyll_bootstrap5_tabs"
 
   spec.authors = ['Artur Gabitov', 'Mike Slinn']
   spec.bindir = 'bin'
-  spec.description = 'Enables Bootstrap 5 tabs in Jekyll 4 websites.'
+  spec.description = <<~END_OF_DESC
+    Enables Bootstrap 5 tabs in Jekyll 4 websites.
+  END_OF_DESC
   spec.email = ['applifort@gmail.com', 'mslinn@mslinn.com']
   spec.executables = GemSpecHelper.spec_executables(files)
   spec.files = files
-  spec.homepage  'https://mslinn.com/blog/2022/02/13/jekyll-gem.html'
+  spec.homepage = "https://mslinn.com/blog/2022/02/13/jekyll-gem.html"
   spec.license = 'MIT'
   spec.metadata = {
     "allowed_push_host" => "https://rubygems.org",
@@ -63,4 +64,3 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'ruby-debug-ide'
 end
-# rubocop:enable Metrics/BlockLength
