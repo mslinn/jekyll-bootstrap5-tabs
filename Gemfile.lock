@@ -4,8 +4,6 @@ PATH
     jekyll_bootstrap5_tabs (1.1.1)
       jekyll (>= 3.5.0)
       jekyll_plugin_logger
-      ruby-filemagic (= 0.7.3)
-      rubyzip
       slim (~> 3.0)
 
 GEM
@@ -110,9 +108,7 @@ GEM
       rubocop-ast (>= 1.1.0)
     ruby-debug-ide (0.7.3)
       rake (>= 0.8.1)
-    ruby-filemagic (0.7.3)
     ruby-progressbar (1.11.0)
-    rubyzip (2.3.2)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
