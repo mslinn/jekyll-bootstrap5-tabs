@@ -15,8 +15,8 @@ fi
 
 NAME=jekyll_archive_create
 
-eval "$( grep VERSION lib/$NAME/version.rb | sed 's/ *//g' )"
+# eval "$( grep VERSION lib/$NAME/version.rb | sed 's/ *//g' )"
 
-bundle exec rake build && \
-gem install "pkg/$NAME-$VERSION.gem" &&
+gem uninstall "$NAME" &&
+bundle exec rake install:local && \
 (cd "$1" || exit 1; _bin/debug)
