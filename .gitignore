@@ -7,4 +7,4 @@ vendor/
 /pkg/
 /spec/reports/
 /tmp/
-*.gemspec
+Gemfile.lock

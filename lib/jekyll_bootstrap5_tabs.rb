@@ -23,7 +23,7 @@ module Jekyll
       @pretty_print = false
       if argv.length > 1 && argv[1].casecmp('pretty').zero?
         @pretty_print = true
-        Jekyll.info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
+        info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
       end
     end
 
@@ -35,8 +35,8 @@ module Jekyll
       return false if tabs_options.nil?
 
       hash = tabs_options.detect { |opt| opt["pretty"] }
-      debug { "*********** tabs_options = #{tabs_options}" }
-      debug { "*********** hash = #{hash}" }
+      Jekyll.debug { "tabs_options = #{tabs_options}" }
+      Jekyll.debug { "hash = #{hash}" }
       !hash.nil? && hash['pretty']
     end
 
@@ -55,7 +55,7 @@ module Jekyll
       end
 
       @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
-      debug { "TabsBlock.render: @environment = '#{@environment}'" }
+      Jekyll.debug { "TabsBlock.render: @environment = '#{@environment}'" }
       super
 
       template_file_path = template_path(DEFAULT_TEMPLATE)
@@ -71,7 +71,7 @@ module Jekyll
       super
 
       @tabs_group, @tab = split_params(args.strip)
-      debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
+      Jekyll.debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
       raise SyntaxError, "Block #{tag} requires tabs name" if @tabs_group.empty? || @tab.empty?
     end
 
