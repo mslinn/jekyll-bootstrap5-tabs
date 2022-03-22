@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
+require "liquid"
 require "jekyll_plugin_logger"
 require "slim"
 require_relative "jekyll_bootstrap5_tabs/version"
 
 DEFAULT_TEMPLATE = 'template.slim'
 
-module Jekyll
+module JekyllBootstrap5Name
   PLUGIN_NAME = "jekyll_bootstrap5_tabs"
+end
 
+module Jekyll
   # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
   class TabsBlock < Liquid::Block
     def initialize(tag, args, _)
@@ -89,9 +92,8 @@ module Jekyll
       params.split('#')
     end
   end
-
-  info { "Loaded #{PLUGIN_NAME} v#{JekyllBootstrap5Tabs::VERSION} plugin." }
 end
 
+PluginMetaLogger.instance.info { "Loaded #{JekyllBootstrap5Name::PLUGIN_NAME} v#{JekyllBootstrap5Tabs::VERSION} plugin." }
 Liquid::Template.register_tag('tabs', Jekyll::TabsBlock)
 Liquid::Template.register_tag('tab', Jekyll::TabBlock)
