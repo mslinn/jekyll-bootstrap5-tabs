@@ -19,6 +19,8 @@ module Jekyll
 
       raise SyntaxError, "#{tag} requires name" if args.empty?
 
+      @logger = PluginLogger.new
+
       argv = args.strip.split
       @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
 
@@ -26,7 +28,7 @@ module Jekyll
       @pretty_print = false
       if argv.length > 1 && argv[1].casecmp('pretty').zero?
         @pretty_print = true
-        info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
+        @logger.info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
       end
     end
 
@@ -38,8 +40,8 @@ module Jekyll
       return false if tabs_options.nil?
 
       hash = tabs_options.detect { |opt| opt["pretty"] }
-      Jekyll.debug { "tabs_options = #{tabs_options}" }
-      Jekyll.debug { "hash = #{hash}" }
+      @logger.debug { "tabs_options = #{tabs_options}" }
+      @logger.debug { "hash = #{hash}" }
       !hash.nil? && hash['pretty']
     end
 
@@ -54,11 +56,11 @@ module Jekyll
       # Global configuration provides the default value of @pretty_print
       if check_config_boolean(site.config, 'pretty')
         @pretty_print = true
-        info { "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site." }
+        @logger.info { "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site." }
       end
 
       @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
-      Jekyll.debug { "TabsBlock.render: @environment = '#{@environment}'" }
+      @logger.debug { "TabsBlock.render: @environment = '#{@environment}'" }
       super
 
       template_file_path = template_path(DEFAULT_TEMPLATE)
@@ -73,8 +75,10 @@ module Jekyll
     def initialize(tag, args, _)
       super
 
+      @logger = PluginLogger.new
+
       @tabs_group, @tab = split_params(args.strip)
-      Jekyll.debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
+      @logger.debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
       raise SyntaxError, "Block #{tag} requires tabs name" if @tabs_group.empty? || @tab.empty?
     end
 
