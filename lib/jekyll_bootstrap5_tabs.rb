@@ -19,7 +19,7 @@ module Jekyll
 
       raise SyntaxError, "#{tag} requires name" if args.empty?
 
-      @logger = PluginLogger.new
+      @logger = PluginLogger.new(self)
 
       argv = args.strip.split
       @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
