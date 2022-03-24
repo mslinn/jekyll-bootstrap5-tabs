@@ -13,10 +13,12 @@ if [ ! -f "$1/_bin/debug" ]; then
   exit 1
 fi
 
-NAME=jekyll_archive_create
+GIT_ROOT="$( git rev-parse --show-toplevel )"
+cd "${GIT_ROOT}"
 
-# eval "$( grep VERSION lib/$NAME/version.rb | sed 's/ *//g' )"
+bin/build
 
-gem uninstall "$NAME" &&
-bundle exec rake install:local && \
-(cd "$1" || exit 1; _bin/debug)
+set -e
+
+cd "$1" > /dev/null || exit 1
+_bin/debug

@@ -28,7 +28,7 @@ module Jekyll
       @pretty_print = false
       if argv.length > 1 && argv[1].casecmp('pretty').zero?
         @pretty_print = true
-        @logger.info { "Bootstrap tab pretty-printing is enabled for {@tab_name}" }
+        @logger.info { "Bootstrap tab pretty-printing is enabled for #{@tab_name}" }
       end
     end
 
