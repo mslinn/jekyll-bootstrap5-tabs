@@ -75,7 +75,7 @@ module Jekyll
     def initialize(tag, args, _)
       super
 
-      @logger = PluginLogger.new
+      @logger = PluginLogger.new(self)
 
       @tabs_group, @tab = split_params(args.strip)
       @logger.debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
