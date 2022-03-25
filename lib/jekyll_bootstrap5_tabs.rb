@@ -18,7 +18,7 @@ class TabsBlock < Liquid::Block
 
     raise SyntaxError, "#{tag} requires name" if args.empty?
 
-    @logger = PluginMetaLogger.new_logger(self)
+    @logger = PluginMetaLogger.instance.new_logger(self)
 
     argv = args.strip.split
     @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
@@ -74,7 +74,7 @@ class TabBlock < Liquid::Block
   def initialize(tag, args, _)
     super
 
-    @logger = PluginMetaLogger.new_logger(self)
+    @logger = PluginMetaLogger.instance.new_logger(self)
 
     @tabs_group, @tab = split_params(args.strip)
     @logger.debug { "TabBlock: @tabs_group = '#{@tabs_group}', @tab = '#{@tab}'" }
