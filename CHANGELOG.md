@@ -1,5 +1,5 @@
 ## 1.1.2 / 2022-03-14
-  * Updated to `jekyll_plugin_logger` v2.0.2
+  * Updated to `jekyll_plugin_logger` v2.1.0
 
 ## 1.1.1 / 2022-03-14
   * Using `jekyll_plugin_logger` instead of `puts`

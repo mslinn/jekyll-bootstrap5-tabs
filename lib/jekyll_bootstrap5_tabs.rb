@@ -96,6 +96,6 @@ class TabBlock < Liquid::Block
   end
 end
 
-PluginMetaLogger.instance.info { "Loaded #{JekyllBootstrap5Name::PLUGIN_NAME} v#{JekyllBootstrap5Tabs::VERSION} plugin." }
+PluginMetaLogger.instance.info { "Loaded #{JekyllBootstrap5Name::PLUGIN_NAME} v#{JekyllBootstrap5TabsVersion::VERSION} plugin." }
 Liquid::Template.register_tag('tabs', TabsBlock)
 Liquid::Template.register_tag('tab', TabBlock)

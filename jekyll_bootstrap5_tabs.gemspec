@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.required_ruby_version = ">= 2.6.0"
   spec.summary = "Jekyll plugin that enables Bootstrap 5 tabs in Jekyll 4 websites."
-  spec.version = JekyllBootstrap5Tabs::VERSION
+  spec.version = JekyllBootstrap5TabsVersion::VERSION
 
   spec.add_dependency "jekyll", ">= 3.5.0"
   spec.add_dependency "jekyll_plugin_logger"
