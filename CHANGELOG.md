@@ -1,5 +1,8 @@
+## 1.1.2 / 2022-03-14
+  * Updated to `jekyll_plugin_logger` v2.0.2
+
 ## 1.1.1 / 2022-03-14
-  * Using `Jekyll.logger` instead of `puts`
+  * Using `jekyll_plugin_logger` instead of `puts`
 
 ## 1.1.0 / 2022-03-13
   * Added support for controlling pretty-printed output in `_config.yml`:
