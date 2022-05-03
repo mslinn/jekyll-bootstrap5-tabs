@@ -9,3 +9,6 @@ vendor/
 /tmp/
 Gemfile.lock
 spec/status_persistence.txt
+.jekyll-cache/
+.jekyll-metadata
+_site/
