@@ -1,14 +1,12 @@
-# frozen_string_literal: true
-
-require "liquid"
-require "jekyll_plugin_logger"
-require "slim"
-require_relative "jekyll_bootstrap5_tabs/version"
+require 'liquid'
+require 'jekyll_plugin_logger'
+require 'slim'
+require_relative 'jekyll_bootstrap5_tabs/version'
 
 DEFAULT_TEMPLATE = 'template.slim'
 
 module JekyllBootstrap5Name
-  PLUGIN_NAME = "jekyll_bootstrap5_tabs"
+  PLUGIN_NAME = 'jekyll_bootstrap5_tabs'
 end
 
 # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
@@ -38,7 +36,7 @@ class TabsBlock < Liquid::Block
     tabs_options = config['jekyll_bootstrap5_tabs']
     return false if tabs_options.nil?
 
-    hash = tabs_options.detect { |opt| opt["pretty"] }
+    hash = tabs_options.detect { |opt| opt['pretty'] }
     @logger.debug { "tabs_options = #{tabs_options}" }
     @logger.debug { "hash = #{hash}" }
     !hash.nil? && hash['pretty']
@@ -55,7 +53,7 @@ class TabsBlock < Liquid::Block
     # Global configuration provides the default value of @pretty_print
     if check_config_boolean(site.config, 'pretty')
       @pretty_print = true
-      @logger.info { "Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site." }
+      @logger.info { 'Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site.' }
     end
 
     @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
