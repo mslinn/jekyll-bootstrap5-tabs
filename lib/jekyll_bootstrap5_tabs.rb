@@ -3,10 +3,10 @@ require 'jekyll_plugin_logger'
 require 'slim'
 require_relative 'jekyll_bootstrap5_tabs/version'
 
-DEFAULT_TEMPLATE = 'template.slim'
+DEFAULT_TEMPLATE = 'template.slim'.freeze
 
 module JekyllBootstrap5Name
-  PLUGIN_NAME = 'jekyll_bootstrap5_tabs'
+  PLUGIN_NAME = 'jekyll_bootstrap5_tabs'.freeze
 end
 
 # Handles the outer {% tabs %}{% endtabs %} Liquid block for Bootstrap 5
@@ -19,14 +19,14 @@ class TabsBlock < Liquid::Block
     @logger = PluginMetaLogger.instance.new_logger(self, PluginMetaLogger.instance.config)
 
     argv = args.strip.split
-    @tab_name = argv[0] # TODO @tab_name is never used. Should act as a namespace.
+    @tab_name = argv[0] # TODO: @tab_name is never used. Should act as a namespace.
 
     # Usage can override default and enable pretty-printing, not possible to disable per-tab
     @pretty_print = false
-    if argv.length > 1 && argv[1].casecmp('pretty').zero?
-      @pretty_print = true
-      @logger.info { "Bootstrap tab pretty-printing is enabled for #{@tab_name}" }
-    end
+    return unless argv.length > 1 && argv[1].casecmp('pretty').zero?
+
+    @pretty_print = true
+    @logger.info { "Bootstrap tab pretty-printing is enabled for #{@tab_name}" }
   end
 
   # @param config [YAML] Configuration data that might contain a entry for `jekyll_bootstrap5_tabs`
@@ -56,12 +56,12 @@ class TabsBlock < Liquid::Block
       @logger.info { 'Bootstrap tab pretty-printing is enabled by default for the entire Jekyll site.' }
     end
 
-    @environment = context.environments.first  # Has type Jekyll::Drops::UnifiedPayloadDrop
+    @environment = context.environments.first # Has type Jekyll::Drops::UnifiedPayloadDrop
     @logger.debug { "TabsBlock.render: @environment = '#{@environment}'" }
     super
 
     template_file_path = template_path(DEFAULT_TEMPLATE)
-    Slim::Engine.set_options :pretty => @pretty_print
+    Slim::Engine.set_options pretty: @pretty_print
     template = Slim::Template.new(template_file_path)
     template.render(self)
   end

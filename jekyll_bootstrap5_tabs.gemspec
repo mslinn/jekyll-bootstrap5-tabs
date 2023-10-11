@@ -1,6 +1,5 @@
 require_relative 'lib/jekyll_bootstrap5_tabs/version'
 
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   github = 'https://github.com/mslinn/jekyll_bootstrap5_tabs'
 
@@ -36,4 +35,3 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jekyll_plugin_logger'
   spec.add_dependency 'slim', '~> 3.0'
 end
-# rubocop:enable Metrics/BlockLength
