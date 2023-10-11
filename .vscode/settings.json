@@ -2,6 +2,5 @@
 {
   "ruby.rubocop.configFilePath": ".rubocop.yml",
   "ruby.rubocop.useBundler": true,
-  "ruby.rubocop.executePath": "./exe/",
-  "rdbg.rubyVersionManager": "rvm"
+  "ruby.rubocop.executePath": "./exe/"
 }
