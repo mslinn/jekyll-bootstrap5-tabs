@@ -9,29 +9,6 @@
       "name": "Attach rdbg",
       "request": "attach",
       "type": "rdbg",
-    },
-    {
-      "args": [
-        "-I",
-        "${workspaceRoot}"
-      ],
-      "debugPort": "0",
-      "name": "RSpec - all",
-      "request": "launch",
-      "script": "${workspaceRoot}/exe/rspec",
-      "type": "rdbg",
-    },
-    {
-      "args": [
-        "-I",
-        "${workspaceRoot}",
-        "${file}"
-      ],
-      "debugPort": "0",
-      "name": "RSpec - active spec file only",
-      "script": "${workspaceRoot}/exe/rspec",
-      "request": "launch",
-      "type": "rdbg",
     }
   ]
 }

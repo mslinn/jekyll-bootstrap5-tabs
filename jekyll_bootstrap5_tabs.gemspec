@@ -4,7 +4,6 @@ Gem::Specification.new do |spec|
   github = 'https://github.com/mslinn/jekyll_bootstrap5_tabs'
 
   spec.authors = ['Artur Gabitov', 'Mike Slinn']
-  spec.bindir = 'bin'
   spec.description = <<~END_DESC
     This Jekyll plugin enables Bootstrap 5 tabs in Jekyll 4 websites.
     Two new Liquid tags are provided: tabs and tab.

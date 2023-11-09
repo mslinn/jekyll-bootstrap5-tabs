@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'liquid'
+require 'jekyll'
 require 'irb'
 require 'jekyll_bootstrap5_tabs'
 
