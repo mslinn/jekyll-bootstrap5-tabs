@@ -9,6 +9,11 @@
       "name": "Attach rdbg",
       "request": "attach",
       "type": "rdbg",
-    }
+    },
+    {
+      "name": "Attach with ruby_lsp",
+      "request": "attach",
+      "type": "ruby_lsp",
+    },
   ]
 }

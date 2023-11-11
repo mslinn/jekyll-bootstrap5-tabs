@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'jekyll'
 require 'irb'
+require 'jekyll'
 require 'jekyll_bootstrap5_tabs'
 
 IRB.start(__FILE__)

@@ -26,9 +26,11 @@ fi
 GIT_ROOT="$( git rev-parse --show-toplevel )"
 cd "${GIT_ROOT}"
 
-bin/build
+bin/build # This is not necessary when the Gemfile uses a path to point to the gem source
 
 set -e
+
+rake install
 
 cd "$1" > /dev/null || exit 1
 shift
